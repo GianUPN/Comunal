@@ -11,6 +11,11 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.vexsoluciones.comunal.ui.main.SectionsPagerAdapter;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.InputStream;
+
 public class MainActivity extends AppCompatActivity {
     public TabLayout tabs;
     private int[] tabIcons = {

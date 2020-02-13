@@ -10,6 +10,11 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.vexsoluciones.comunal.R;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.InputStream;
+
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
@@ -29,8 +34,22 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         // getItem is called to instantiate the fragment for the given page.
         // Return a PlaceholderFragment (defined as a static inner class below).
+        try{
+            String json;
+            InputStream imput = mContext.getAssets().open("data.json");
+            int size = imput.available();
+            byte[] buffer = new byte[size];
+            imput.read(buffer);
+            imput.close();
+            json = new String(buffer,"UTF-8");
+            JSONArray jsonArray = new JSONArray(json);
+            JSONObject jsonObject = jsonArray.getJSONObject(position);
+            return PlaceholderFragment.newInstance(position + 1,jsonObject.toString());
+        }catch (Exception e){
+            e.printStackTrace();
+            return PlaceholderFragment.newInstance(position + 1,null);
+        }
 
-        return PlaceholderFragment.newInstance(position + 1);
     }
 
     @Nullable
