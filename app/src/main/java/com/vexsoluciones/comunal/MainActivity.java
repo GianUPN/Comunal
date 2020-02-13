@@ -1,21 +1,23 @@
 package com.vexsoluciones.comunal;
 
 import android.os.Bundle;
+import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
-
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-
 import com.vexsoluciones.comunal.ui.main.SectionsPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
+    public TabLayout tabs;
+    private int[] tabIcons = {
+            R.mipmap.bienestar,
+            R.mipmap.diversion,
+            R.mipmap.aprendizaje
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +26,10 @@ public class MainActivity extends AppCompatActivity {
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = findViewById(R.id.tabs);
+        tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = findViewById(R.id.fab);
-
+        setupTabIcons();
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -35,5 +37,15 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    private void setupTabIcons() {
+        tabs.getTabAt(0).setIcon(tabIcons[0]);
+        tabs.getTabAt(1).setIcon(tabIcons[1]);
+        tabs.getTabAt(2).setIcon(tabIcons[2]);
+    }
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
