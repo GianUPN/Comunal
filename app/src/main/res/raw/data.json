@@ -1,0 +1,32 @@
+[
+   {
+      "name":"Bienestar",
+      "benefits":[
+         {
+            "business_name":"Empresa A",
+            "name":"Beneficio A: 20% de descuento en todos los platos de la carta",
+            "image":"https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg"
+         }
+      ]
+   },
+   {
+      "name":"Diversión",
+      "benefits":[
+         {
+            "business_name":"Empresa B",
+            "name":"Beneficio B: 30% de descuento en todos los platos de la carta sin incluir bebidas alcohólicas",
+            "image":"https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg"
+         }
+      ]
+   },
+   {
+      "name":"Aprendizaje",
+      "benefits":[
+         {
+            "business_name":"Empresa C",
+            "name":"Beneficio C: 15% de descuento en All you can eat",
+            "image":"https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg"
+         }
+      ]
+   }
+]
